@@ -6,6 +6,12 @@ class InitManager {
     static initCore(app){
         InitManager.app = app
         InitManager.initLoadRouters()
+        InitManager.loadHttpException() // 把
+    }
+    static loadConfig(path=''){
+        const config = path || process.cwd() + '/config/config.js'
+        const config = require(config)
+        global.config
     }
     static initLoadRouters(){
         // path config
@@ -18,6 +24,10 @@ class InitManager {
                 InitManager.app.use(obj.routes())
             }
         }
+    }
+    static loadHttpException (){
+        const errors = require('./http-exception')
+        global.errors = errors
     }
 }
 

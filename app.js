@@ -5,11 +5,11 @@ const bodyParser = require('koa-bodyparser')
 const path = require('path')
 
 const InitManager = require('@core/init')
-
+const catchError = require('@middlewares/exception.js')
 const static = require('koa-static')
 
 const app = new Koa()
-
+app.use(catchError)  // 要理解 koa 中间件机制  取 app.use注册 中间件 递归调用
 app.use(bodyParser())
 
 app.use(static(path.join(__dirname,'./static')))
