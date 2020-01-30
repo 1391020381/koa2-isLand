@@ -4,7 +4,7 @@
   "description": "打造好用KOA2Web框架",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "dev":"nodemon app.js"
   },
   "repository": {
     "type": "git",
