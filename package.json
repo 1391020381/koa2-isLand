@@ -1,0 +1,39 @@
+{
+  "name": "koa2-island",
+  "version": "1.0.0",
+  "description": "打造好用KOA2Web框架",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1391020381/koa2-isLand.git"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1391020381/koa2-isLand/issues"
+  },
+  "homepage": "https://github.com/1391020381/koa2-isLand#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^8.0.6",
+    "koa-static": "^5.0.0",
+    "module-alias": "^2.2.2",
+    "require-directory": "^2.1.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@model": "app/model",
+    "@core": "core",
+    "@middlewares": "middlewares",
+    "@validator": "app/validators/validator.js",
+    "@services": "app/services",
+    "@lib": "app/lib"
+  }
+}
