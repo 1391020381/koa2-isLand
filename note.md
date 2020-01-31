@@ -13,3 +13,4 @@ const modules = require-directory(module,'./api',{visit:whenModuleLoad})
 
 
 ```
+* init.js 中定义了全局的异常 异常包括定义不同的 错误对象    定义全局的配置 自动加载路由

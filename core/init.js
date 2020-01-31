@@ -1,16 +1,17 @@
 const requireDirectory = require('require-directory')
 const path = require('path')
 const Router = require('koa-router')
-
 class InitManager {
     static initCore(app){
         InitManager.app = app
         InitManager.initLoadRouters()
-        InitManager.loadHttpException() // 把
+        InitManager.loadHttpException() 
+        InitManager.loadConfig()
     }
     static loadConfig(path=''){
-        const config = path || process.cwd() + '/config/config.js'
-        const config = require(config)
+        console.log(__dirname,process.cwd())
+        const configPath = path || process.cwd() + '/config/config.js'
+        const config = require(configPath)
         global.config
     }
     static initLoadRouters(){
