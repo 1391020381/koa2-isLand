@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^8.0.6",
@@ -34,11 +35,11 @@
   },
   "_moduleAliases": {
     "@root": ".",
-    "@model": "app/model",
+    "@models": "app/models",
     "@config": "config",
     "@core": "core",
     "@middlewares": "middlewares",
-    "@validator": "app/validators/validator.js",
+    "@validator": "app/validator",
     "@services": "app/services",
     "@lib": "app/lib"
   }
