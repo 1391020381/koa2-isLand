@@ -3,6 +3,8 @@ const {LinValidator,Rule} = require('@core/lin-validator-v2')
 
 const {User} = require('@models/user')
 
+const {LoginType,ArtType} = require('@lib/enum')
+// 使用 lin-validator-v2 校验的参数  如果校验不成功 会抛出 ParameterException 错误
 class RegisterValidator extends LinValidator{
     constructor(){
         super()
@@ -43,7 +45,43 @@ class RegisterValidator extends LinValidator{
         }
     }
 }
+class TokenValidator extends LinValidator{
+    constructor(){
+        super()
+        this.account = [
+            new Rule('isLength','不符合账号规则',{
+                min:4,
+                max:32
+            })
+        ]
+        this.secret = [
+            new Rule('isOptional'),
+            new Rule('isLength','至少6个字符',{
+                min:6,
+                max:128
+            })
+        ]   
+    }
+    validateLoginType(vals){
+        if(!vals.body.type){
+            throw new Error('type是必须参数')
+        }
+        if(!LoginType.isThisType(vals.body.type)){
+            throw new Error('type参数不合法')
+        }
+    }
+}
 
+class NotEmptyValidator extends LinValidator{
+    constructor(){
+        super()
+        this.token = new Rule('isLength','不许为空',{
+            min:1
+        })
+    }
+}
 module.exports = {
-    RegisterValidator
+    RegisterValidator, 
+    TokenValidator ,
+    NotEmptyValidator  
 }
