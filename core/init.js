@@ -9,10 +9,10 @@ class InitManager {
         InitManager.loadConfig()
     }
     static loadConfig(path=''){
-        console.log(__dirname,process.cwd())
+        // console.log(__dirname,process.cwd())
         const configPath = path || process.cwd() + '/config/config.js'
         const config = require(configPath)
-        global.config
+        global.config = config
     }
     static initLoadRouters(){
         // path config
@@ -28,7 +28,7 @@ class InitManager {
     }
     static loadHttpException (){
         const errors = require('./http-exception')
-        global.errors = errors
+        global.errs = errors
     }
 }
 
