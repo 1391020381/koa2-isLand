@@ -44,5 +44,6 @@ module.exports = {
     HttpException,
     ParameterException,
     Success,
-    Forbbiden
+    Forbbiden,
+    AuthFailed
 }

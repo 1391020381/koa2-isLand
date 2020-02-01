@@ -16,6 +16,6 @@ app.use(static(path.join(__dirname,'./static')))
 
 InitManager.initCore(app)
 
-app.listen(3001,()=>{
-    console.log(`service is listen http://127.0.0.1:3001`)
+app.listen(3000,()=>{
+    console.log(`service is listen http://127.0.0.1:3000`)
 })

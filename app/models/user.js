@@ -20,6 +20,21 @@ class User extends Model {
        }
        return user
     }
+    static async getUserByOpenid(openid){ // 查询用户
+        // user 将是 User 表格中 openid 对应的第一个条目 || null
+        const user = await User.findOne({
+            where:{
+                openid
+            }
+        })
+        return user
+    }
+    static async registerByOpenid(openid){
+       const user = await User.create({
+         openid  
+       })
+       return user
+    }
 }
 
 User.init({
