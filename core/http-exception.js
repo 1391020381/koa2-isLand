@@ -15,11 +15,12 @@ class ParameterException extends HttpException{
     }
 }
 class Success extends HttpException{
-    constructor(msg,errorCode){
+    constructor(msg,errorCode,result){
         super()
         this.code = 201
         this.msg = msg || 'ok'
         this.errorCode = errorCode || 0
+        this.result = result || {}  // 当业务成功后返回结果 ,前端通过 errorCode 判断业务是否成功
     }
 }
 
