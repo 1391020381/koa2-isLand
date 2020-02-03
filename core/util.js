@@ -40,6 +40,7 @@ const findMembers = function (instance, {
 }
 
 const generateToken = function(uid, scope){
+ //   console.log('generateToken:',uid,scope)
     const secretKey = global.config.security.secretKey
     const expiresIn = global.config.security.expiresIn
     const token = jwt.sign({
@@ -48,6 +49,7 @@ const generateToken = function(uid, scope){
     },secretKey,{
         expiresIn
     })
+//    console.log('generateToken-token:',token)
     return token
 }
 

@@ -3,10 +3,8 @@ const jwt = require('jsonwebtoken')
 
 class Auth{
     constructor(level){
+        
         this.level = level || 1
-        Auth.USER = 8
-        Auth.ADMIN = 16
-        Auth.SUPER_ADMIN = 32
     }
     get m(){
         return async (ctx,next)=>{
@@ -45,6 +43,9 @@ class Auth{
     }
 }
 
+        Auth.USER = 8
+        Auth.ADMIN = 16
+        Auth.SUPER_ADMIN = 32
 module.exports = {
     Auth
 }

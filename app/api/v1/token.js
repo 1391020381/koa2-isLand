@@ -15,14 +15,14 @@ router.post('/login',async(ctx,next)=>{
     const v = await new TokenValidator().validate(ctx)
     let token
     let type = v.get('body.type')
-    console.log(type,LoginType.USER_MINI_PROGRAM) 
+ //   console.log(type,LoginType.USER_MINI_PROGRAM) 
                             // 
     switch (v.get('body.type')) {
         case LoginType.USER_EMAIL:
             token  = await emailLogin(v.get('body.account'),v.get('body.secret'))
             break
         case LoginType.USER_MINI_PROGRAM:  // USER_MINI_PROGRAM
-             token  = WXManager.codeToToken(v.get('body.account'))
+             token  = await WXManager.codeToToken(v.get('body.account'))
              break
         default:
             break

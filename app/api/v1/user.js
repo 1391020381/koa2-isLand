@@ -13,7 +13,7 @@ const router = new Router({
 })
 
 router.post('/register',async(ctx,next)=>{
-    console.log('register:',JSON.stringify(ctx.request.body))
+ //   console.log('register:',JSON.stringify(ctx.request.body))
     const v = await new RegisterValidator().validate(ctx)
 
     const user = {

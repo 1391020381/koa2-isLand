@@ -15,15 +15,19 @@ class WXManager {
             if(result.status !== 200){
                 throw new global.errs.AuthFailed('openId获取失败')
             }
+            // console.log('result:',result.data)
         const errcode = result.data.errcode
         const errmsg = result.data.errmsg
         if(errcode){
             throw new global.errs.AuthFailed('openId获取失败:'+ errmsg)
         }
         let user = await User.getUserByOpenid(result.data.openid)
+        // console.log('查找user:',user)
         if(!user){
-            user = await User.registerByOpenid(resutl.data.openid)
+            user = await User.registerByOpenid(result.data.openid)
+            console.log('注册user:',user)
         }
+       // console.log('Auth.USER:',Auth,Auth.USER)
         return generateToken(user.id,Auth.USER)
     }
 }
