@@ -84,4 +84,15 @@ router.get('/:type/:id/favor',new Auth().m,async(ctx,next)=>{
         like_status:artDetail.like_status
     }
 })
+
+
+
+// favor 记录某个 art 分类 某个用户是否点赞
+// 获取喜欢的期刊  new Auth().m  可以获取到 uid  -> favor 该用户点赞的分类 ->  art 获取某个分类信息
+
+router.get('/favor',new Auth().m,async (ctx,next)=>{
+    const uid = ctx.auth.uid
+    ctx.body = await Favor.getMyClassicFavors(uid) 
+})
+
 module.exports = router
