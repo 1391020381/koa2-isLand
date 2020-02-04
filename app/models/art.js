@@ -9,6 +9,18 @@ class Art {
         this.art_id = art_id
         this.type = type
     }
+     async getDetail(uid){ // art 实体中保存了 点赞的次数
+        const {Favor} = require('./favor')
+        const art = await Art.getData(this.art_id,this.type)
+        if(!art){
+            throw new global.errs.NotFound()
+        }
+        const like = await Favor.userLikeIt(this.art_id,this.type,uid)
+        return {
+            art,
+            like_status:like
+        }
+    }
     static async getData(art_id,type,useScope=true) { 
     //    {
     //     MOVIE:100,

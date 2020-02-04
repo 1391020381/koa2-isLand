@@ -90,7 +90,9 @@ class PositiveIntegerValidator extends LinValidator{
        ]
     }
 }
+class ClassicValidator extends LinValidator{
 
+}
 function checkArtType(vals){
     let type = vals.body.type || vals.path.type
     if(!type){
@@ -105,5 +107,6 @@ module.exports = {
     RegisterValidator, 
     TokenValidator ,
     NotEmptyValidator,
-    PositiveIntegerValidator  
+    PositiveIntegerValidator,
+    ClassicValidator  
 }
