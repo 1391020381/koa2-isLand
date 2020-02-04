@@ -40,6 +40,14 @@ class Forbbiden extends HttpException{
         this.errorCode = errorCode || 10006
     }
 }
+class NotFound extends HttpException{
+    constructor(msg,errorCode){
+        super()
+        this.code = 404
+        this.msg = msg || 'not found'
+        this.errorCode = errorCode || 10000
+    }
+}
 module.exports = {
     HttpException,
     ParameterException,

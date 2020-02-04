@@ -80,8 +80,30 @@ class NotEmptyValidator extends LinValidator{
         })
     }
 }
+class PositiveIntegerValidator extends LinValidator{
+    constructor(){
+        super()
+       this.id = [
+           new Rule('isInt','需要是正整数',{
+               min:1
+           })
+       ]
+    }
+}
+
+function checkArtType(vals){
+    let type = vals.body.type || vals.path.type
+    if(!type){
+        throw new Error('type是必须参数')
+    }
+    type = parseInt(type)
+    if(!ArtType.isThisType(type)){
+        throw new Error('type参数不合法')
+    }
+}
 module.exports = {
     RegisterValidator, 
     TokenValidator ,
-    NotEmptyValidator  
+    NotEmptyValidator,
+    PositiveIntegerValidator  
 }
