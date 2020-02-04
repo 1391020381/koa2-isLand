@@ -15,10 +15,10 @@ const sequelize = new Sequelize(dbName,user,password,{
         timestamps:true,
         paranoid:true, // 不删除数据库条目,但将新添加的属性 deletedAt设置为当前的日期  （删除完成时）
         createdAt:'created_at',
-        updatedAt:'update_at',
+        updatedAt:'updated_at',
         underscored:true,// 自动设置所有属性的字段参数为下划线命名方式
         scopes:{
-            bt:{
+            bh:{
                 attributes: {
                     exclude: ['updatedAt', 'deletedAt', 'createdAt']
                   }  
@@ -38,7 +38,7 @@ Model.prototype.toJSON = function(){
     unset(data,'deletedAt')
     for(key in data){
         if(key === 'image'){
-            if(!data[key].startWith('http')){
+            if(!data[key].startsWith('http')){
                 data[key] = global.config.host + data[key]
             }
         }

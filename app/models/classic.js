@@ -33,9 +33,9 @@ Sentence.init(classicFields,{
     tableName:'sentence'
 })
 
-class Music extends Model{
+// class Music extends Model{
 
-}
+// }
 
 class Music extends Model{
 

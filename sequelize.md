@@ -35,3 +35,8 @@
   6. 乐观锁
   7. 数据库同步
   8. 扩展模型
+
+
+
+
+  * [Incorrect datetime value](https://www.cnblogs.com/huanhang/p/7050757.html)
